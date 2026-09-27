@@ -1,0 +1,124 @@
+/* pages/discover/index.wxss 发现页 */
+/* ===== 内容入口块 ===== */
+.blocks {
+  width: 726rpx;
+  margin: 18rpx auto 0;
+}
+
+.block {
+  display: flex;
+  align-items: center;
+  padding: 28rpx 30rpx;
+  margin-bottom: 18rpx;
+  border-radius: 26rpx;
+  background: #FFFFFF;
+}
+
+.block--hover {
+  background: #F8FBF7;
+}
+
+.block__badge {
+  flex: none;
+  width: 88rpx;
+  height: 88rpx;
+  margin-right: 24rpx;
+  border-radius: 22rpx;
+  background: #E7F7EB;
+  color: #1B8A3D;
+  font-size: 26rpx;
+  font-weight: 700;
+  line-height: 88rpx;
+  text-align: center;
+}
+
+.block__badge--additive {
+  background: #FDF3DF;
+  color: #D2890F;
+}
+
+.block__badge--recipe {
+  background: #E9EEFB;
+  color: #4A63C8;
+}
+
+.block__badge--standard {
+  background: #F0E9FB;
+  color: #7B4FC8;
+}
+
+.block__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.block__title {
+  font-size: 31rpx;
+  font-weight: 600;
+  color: #12351E;
+}
+
+.block__desc {
+  margin-top: 8rpx;
+  font-size: 25rpx;
+  color: #98A19C;
+}
+
+/* ===== 食材速查 ===== */
+.card {
+  margin-top: 8rpx;
+}
+
+.card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx 32rpx 0;
+}
+
+.card__title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #12351E;
+}
+
+.card__more {
+  font-size: 25rpx;
+  color: #98A19C;
+}
+
+.ings {
+  display: flex;
+  padding: 24rpx 20rpx 30rpx;
+}
+
+.ing {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10rpx 0;
+  border-radius: 20rpx;
+}
+
+.ing--hover {
+  background: #F8FBF7;
+}
+
+.ing__img {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 20rpx;
+  background: #FCF4E8;
+}
+
+.ing__name {
+  margin-top: 14rpx;
+  font-size: 26rpx;
+  color: #3E4A44;
+}
+
+.page__notice {
+  margin-top: 30rpx;
+}

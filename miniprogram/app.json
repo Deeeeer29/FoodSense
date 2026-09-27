@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/basket/index",
+    "pages/discover/index",
+    "pages/mine/index",
+    "pages/scan/index",
+    "pages/analysis/index",
+    "pages/additive/index",
+    "pages/fresh/index",
+    "pages/recipe/list/index",
+    "pages/recipe/detail/index",
+    "pages/standard/index",
+    "pages/example/index"
+  ],
+  "window": {
+    "backgroundColor": "#F4F6F3",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "食察局",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#969CA0",
+    "selectedColor": "#1FA84B",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tab-home.png",
+        "selectedIconPath": "images/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/basket/index",
+        "text": "菜篮子",
+        "iconPath": "images/tab-basket.png",
+        "selectedIconPath": "images/tab-basket-active.png"
+      },
+      {
+        "pagePath": "pages/discover/index",
+        "text": "发现",
+        "iconPath": "images/tab-discover.png",
+        "selectedIconPath": "images/tab-discover-active.png"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的",
+        "iconPath": "images/tab-user.png",
+        "selectedIconPath": "images/tab-user-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents"
+}

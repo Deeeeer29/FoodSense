@@ -1,0 +1,58 @@
+<!--pages/recipe/detail/index.wxml 食谱详情页（页面 07）-->
+<view class="page">
+
+  <!-- ===== 成品图 ===== -->
+  <view class="hero">
+    <image class="hero__img" src="{{recipe.largeImage || recipe.image}}" mode="aspectFill" />
+  </view>
+
+  <!-- ===== 基础信息 ===== -->
+  <view class="facts">
+    <view class="fact">
+      <text class="fact__label">时长</text>
+      <text class="fact__value">{{recipe.minutes}} 分钟</text>
+    </view>
+    <view class="fact">
+      <text class="fact__label">难度</text>
+      <text class="fact__value">{{recipe.difficulty}}</text>
+    </view>
+    <view class="fact">
+      <text class="fact__label">份量</text>
+      <text class="fact__value">{{recipe.servings}}</text>
+    </view>
+    <view class="fact__fav" bindtap="onToggleFav">{{fav ? '♥' : '♡'}}</view>
+  </view>
+
+  <!-- ===== 所需食材 ===== -->
+  <view class="card">
+    <view class="card__body">
+      <view class="section__head">
+        <text class="section__title">所需食材</text>
+        <text class="section__sub">（{{matchedCount}} 种来自你的菜篮子）</text>
+      </view>
+      <view class="ing" wx:for="{{ingredientRows}}" wx:key="name">
+        <image class="ing__img" src="{{item.image}}" mode="aspectFit" />
+        <text class="ing__name">{{item.name}}</text>
+        <text class="ing__amount">{{item.amount}}</text>
+        <view class="ing__own {{item.owned ? 'ing__own--on' : ''}}">{{item.owned ? '✓' : ''}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- ===== 制作步骤 ===== -->
+  <view class="card">
+    <view class="card__body">
+      <text class="section__title">制作步骤</text>
+      <view class="step" wx:for="{{recipe.steps}}" wx:key="*this">
+        <view class="step__index">{{index + 1}}</view>
+        <text class="step__text">{{item}}</text>
+      </view>
+      <view class="recipe__tip" wx:if="{{recipe.tip}}">
+        <text class="recipe__tip-title">小贴士</text>
+        <text class="recipe__tip-text">{{recipe.tip}}</text>
+      </view>
+    </view>
+  </view>
+
+  <notice-bar mode="card" class="page__notice" />
+</view>

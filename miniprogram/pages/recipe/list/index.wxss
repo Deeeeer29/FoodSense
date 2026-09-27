@@ -1,0 +1,381 @@
+/* pages/recipe/list/index.wxss 食谱推荐页 */
+.page {
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+  background: #F4F6F3;
+}
+
+.page__padding {
+  height: 180rpx;
+}
+
+/* ===================== 推荐横幅 ===================== */
+.banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 726rpx;
+  margin: 16rpx auto 0;
+  padding: 30rpx 28rpx;
+  border-radius: 26rpx;
+  overflow: hidden;
+  background: linear-gradient(115deg, #EAF8E4 0%, #F3FBEF 55%, #E6F6DF 100%);
+}
+
+/* 右侧叶片装饰 */
+.banner::after {
+  content: "";
+  position: absolute;
+  right: -30rpx;
+  top: -40rpx;
+  width: 220rpx;
+  height: 220rpx;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(150, 214, 120, 0.34), rgba(150, 214, 120, 0) 70%);
+}
+
+.banner__art {
+  flex: none;
+  width: 136rpx;
+  height: 136rpx;
+}
+
+.banner__main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  margin-left: 22rpx;
+}
+
+.banner__title {
+  font-size: 38rpx;
+  font-weight: 700;
+  line-height: 50rpx;
+  color: #14532A;
+}
+
+.banner__sub {
+  display: flex;
+  align-items: baseline;
+  margin-top: 12rpx;
+  font-size: 27rpx;
+  color: #6C7772;
+}
+
+/* 可匹配数量用品牌绿高亮 */
+.banner__count {
+  margin: 0 8rpx;
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #2EAE55;
+}
+
+/* ===================== 菜篮子食材速览 ===================== */
+.owned {
+  display: flex;
+  width: 726rpx;
+  margin: 22rpx auto 0;
+  padding: 22rpx 18rpx;
+  border-radius: 26rpx;
+  background: #FFFFFF;
+}
+
+.owned__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.owned__thumb {
+  width: 76rpx;
+  height: 76rpx;
+}
+
+.owned__name {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #4C5751;
+}
+
+/* ===================== 分类筛选 ===================== */
+.filters {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 20rpx 6rpx;
+}
+
+.filters__item {
+  flex: 1;
+  padding: 16rpx 0;
+  margin: 0 6rpx;
+  border-radius: 32rpx;
+  font-size: 28rpx;
+  color: #6C7772;
+  text-align: center;
+}
+
+.filters__item--active {
+  color: #16241A;
+  font-weight: 700;
+  background: #E9F7E6;
+  position: relative;
+}
+
+/* 激活态下方绿色短横线 */
+.filters__item--active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 8rpx;
+  width: 54rpx;
+  height: 6rpx;
+  margin-left: -27rpx;
+  border-radius: 3rpx;
+  background: #35BE62;
+}
+
+/* ===================== 食谱卡片 ===================== */
+.recipes {
+  width: 726rpx;
+  margin: 14rpx auto 0;
+}
+
+.recipe {
+  display: flex;
+  padding: 20rpx;
+  border-radius: 26rpx;
+  background: #FFFFFF;
+}
+
+.recipe + .recipe {
+  margin-top: 22rpx;
+}
+
+.recipe--hover {
+  background: #F8FBF7;
+}
+
+.recipe__img {
+  flex: none;
+  width: 272rpx;
+  height: 272rpx;
+  border-radius: 22rpx;
+  background: #F3F5F2;
+}
+
+.recipe__main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  margin-left: 22rpx;
+}
+
+.recipe__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.recipe__name {
+  flex: 1;
+  min-width: 0;
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #16241A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 「可直接做」胶囊 */
+.cookable {
+  flex: none;
+  display: flex;
+  align-items: center;
+  margin-left: 10rpx;
+  padding: 8rpx 18rpx 8rpx 12rpx;
+  border-radius: 24rpx;
+  background: linear-gradient(120deg, #5FCB7C 0%, #2EAE55 100%);
+  color: #FFFFFF;
+  font-size: 22rpx;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.cookable__icon {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 6rpx;
+}
+
+.recipe__desc {
+  margin-top: 12rpx;
+  font-size: 25rpx;
+  line-height: 36rpx;
+  color: #8A9390;
+}
+
+/* 时长 / 难度 / 热量 */
+.meta {
+  display: flex;
+  align-items: center;
+  margin-top: 16rpx;
+}
+
+.meta__item {
+  display: flex;
+  align-items: center;
+  margin-right: 18rpx;
+  font-size: 23rpx;
+  color: #6C7772;
+  white-space: nowrap;
+}
+
+.meta__icon {
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 6rpx;
+}
+
+/* 已匹配食材条 */
+.matched {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  padding: 14rpx 16rpx;
+  border-radius: 16rpx;
+  background: #F1F9EE;
+}
+
+.matched__label {
+  flex: 1;
+  min-width: 0;
+  font-size: 24rpx;
+  color: #2EAE55;
+  font-weight: 600;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.matched__thumbs {
+  display: flex;
+  align-items: center;
+  flex: none;
+}
+
+.matched__thumb {
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.matched__thumb + .matched__thumb {
+  margin-left: 6rpx;
+}
+
+/* 右侧箭头（纯 CSS） */
+.matched__arrow {
+  flex: none;
+  width: 14rpx;
+  height: 14rpx;
+  margin-left: 12rpx;
+  border-top: 4rpx solid #B9C4BD;
+  border-right: 4rpx solid #B9C4BD;
+  transform: rotate(45deg);
+}
+
+/* ===================== 空状态 ===================== */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 726rpx;
+  margin: 40rpx auto 0;
+  padding: 64rpx 40rpx;
+  border-radius: 26rpx;
+  background: #FFFFFF;
+}
+
+.empty__icon {
+  font-size: 72rpx;
+  line-height: 1;
+}
+
+.empty__title {
+  margin-top: 24rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #2A3630;
+}
+
+.empty__desc {
+  margin-top: 14rpx;
+  font-size: 25rpx;
+  line-height: 38rpx;
+  color: #8A9390;
+  text-align: center;
+}
+
+/* ===================== 底部操作栏 ===================== */
+.footer-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding: 16rpx 32rpx calc(16rpx + env(safe-area-inset-bottom));
+  background: #FFFFFF;
+  box-shadow: 0 -6rpx 20rpx rgba(20, 60, 35, 0.05);
+}
+
+.btn-basket {
+  flex: 1.62;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 92rpx;
+  border-radius: 46rpx;
+  background: linear-gradient(120deg, #46C46A 0%, #1FA84B 100%);
+  color: #FFFFFF;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.btn-basket--hover {
+  opacity: 0.9;
+}
+
+.btn-basket__icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 14rpx;
+}
+
+/* 次要按钮：浅绿底 */
+.btn-refresh {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 92rpx;
+  margin-left: 20rpx;
+  border-radius: 46rpx;
+  background: #EAF8E4;
+  color: #1B8A3D;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.btn-refresh--hover {
+  background: #DFF3D7;
+}
+
+.btn-refresh__icon {
+  width: 34rpx;
+  height: 34rpx;
+  margin-right: 12rpx;
+}

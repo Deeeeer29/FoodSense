@@ -1,0 +1,49 @@
+<!--pages/mine/index.wxml 我的 · 关于食察局-->
+<view class="page">
+
+  <!-- ===== 用户卡 ===== -->
+  <view class="profile">
+    <image class="profile__avatar" src="/images/avatar-user.png" mode="aspectFit" />
+    <view class="profile__main">
+      <text class="profile__name">{{userName}}</text>
+      <view class="profile__id-row">
+        <text class="profile__id">ID：{{userId}}</text>
+        <view class="profile__copy" bindtap="onCopyId" hover-class="profile__copy--hover"></view>
+      </view>
+      <view class="profile__badge">
+        <view class="profile__badge-crown"></view>
+        <text>{{userLevel}}</text>
+      </view>
+    </view>
+    <view class="profile__arrow"></view>
+  </view>
+
+  <!-- ===== 数据入口 ===== -->
+  <view class="stats">
+    <view class="stat" wx:for="{{stats}}" wx:key="key" data-key="{{item.key}}" bindtap="onTapStat" hover-class="stat--hover">
+      <image class="stat__icon" src="{{item.icon}}" mode="aspectFit" />
+      <text class="stat__label">{{item.label}}</text>
+      <text class="stat__value">{{item.value}}</text>
+    </view>
+  </view>
+
+  <!-- ===== 菜单 ===== -->
+  <view class="menu">
+    <view
+      class="menu__item"
+      wx:for="{{menus}}"
+      wx:key="key"
+      data-key="{{item.key}}"
+      bindtap="onTapMenu"
+      hover-class="menu__item--hover"
+    >
+      <image class="menu__icon" src="{{item.icon}}" mode="aspectFit" />
+      <text class="menu__label">{{item.label}}</text>
+      <view class="menu__arrow"></view>
+    </view>
+  </view>
+
+  <text class="version">食察局 · AI 食品助手 v{{version}}</text>
+
+  <notice-bar mode="card" class="page__notice" />
+</view>

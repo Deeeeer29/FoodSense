@@ -1,0 +1,12 @@
+<!--pages/standard/index.wxml 参考标准说明页-->
+<view class="page">
+  <view class="card" wx:for="{{standards}}" wx:key="code">
+    <view class="card__body">
+      <text class="std__code">{{item.code}}</text>
+      <text class="std__name">{{item.name}}</text>
+      <text class="std__scope">适用范围：{{item.scope}}</text>
+      <text class="std__note">{{item.note}}</text>
+    </view>
+  </view>
+  <notice-bar mode="block" class="page__notice" />
+</view>

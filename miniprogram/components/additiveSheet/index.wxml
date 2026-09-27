@@ -1,0 +1,70 @@
+<!--components/additiveSheet/index.wxml 添加剂详情弹窗-->
+<view class="mask" wx:if="{{show}}" bindtap="onClose">
+  <view class="sheet" catchtap="onStop">
+    <view class="sheet__head">
+      <text class="sheet__title">添加剂详情</text>
+      <view class="sheet__close" bindtap="onClose" hover-class="sheet__close--hover">✕</view>
+    </view>
+
+    <scroll-view class="sheet__body" scroll-y>
+      <!-- 名称 + 别名 + 风险标签 -->
+      <view class="head">
+        <view class="head__icon head__icon--{{additive.risk}}">{{additive.name[0]}}</view>
+        <view class="head__main">
+          <text class="head__name">{{additive.name}}</text>
+          <text class="head__alias" wx:if="{{additive.alias}}">（{{additive.alias}}）</text>
+        </view>
+        <text class="pill pill--{{additive.risk}}">{{additive.riskLabel}}</text>
+      </view>
+
+      <!-- 是什么 -->
+      <view class="block">
+        <text class="block__title">是什么</text>
+        <text class="block__text">{{additive.desc || additive.plain}}</text>
+      </view>
+
+      <!-- 常见使用场景 -->
+      <view class="block">
+        <text class="block__title">常见使用场景</text>
+        <view class="scenes">
+          <view class="scene" wx:for="{{additive.scenes}}" wx:key="label">
+            <image class="scene__icon" src="{{item.image}}" mode="aspectFit" />
+            <text class="scene__name">{{item.name}}</text>
+            <text class="scene__label">{{item.label}}</text>
+          </view>
+        </view>
+        <text class="block__hint" wx:if="{{additive.sceneText}}">{{additive.sceneText}}</text>
+      </view>
+
+      <!-- 参考摄入建议 -->
+      <view class="block">
+        <text class="block__title">参考摄入建议</text>
+        <text class="block__text">{{additive.intake}}</text>
+      </view>
+
+      <!-- 相关标准 -->
+      <view class="block">
+        <text class="block__title">相关标准</text>
+        <text class="block__text">{{standardText}}</text>
+      </view>
+
+      <!-- 安全性评估 -->
+      <view class="block">
+        <text class="block__title">安全性评估</text>
+        <view class="safety" style="background: {{riskBg}}">
+          <image class="safety__icon" src="{{riskShield}}" mode="aspectFit" />
+          <view class="safety__main">
+            <text class="safety__title" style="color: {{riskColor}}">{{riskTitle}}</text>
+            <text class="safety__text">{{riskAssessment}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="sheet__tip">{{tip}}</view>
+    </scroll-view>
+
+    <view class="sheet__footer">
+      <view class="btn-primary" bindtap="onClose" hover-class="btn-primary--hover">我知道了</view>
+    </view>
+  </view>
+</view>

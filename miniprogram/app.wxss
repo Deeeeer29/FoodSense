@@ -1,0 +1,70 @@
+@import "/common.wxss";
+
+/**
+ * app.wxss —— 全局样式与设计令牌
+ *
+ * 设计稿基准：750rpx 逻辑宽度，页面左右留白 12rpx，卡片宽度 726rpx。
+ * 各页面只使用这里定义的变量，避免颜色/间距散落各处。
+ */
+page {
+  --brand-green: #1FA84B;
+  --brand-green-dark: #0F7A34;
+  --brand-orange: #F96B33;
+  --brand-orange-dark: #EE5A1E;
+
+  --text-main: #16241A;
+  --text-sub: #8A9390;
+  --text-body: #5B6660;
+
+  --page-bg: #F4F6F3;
+  --card-white: #FFFFFF;
+  --line: #EEF1EC;
+
+  --gap: 22rpx;
+  --card-w: 726rpx;
+  --radius-card: 24rpx;
+
+  background-color: #F4F6F3;
+  font-family: -apple-system, "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+  color: #16241A;
+}
+
+view,
+text,
+image,
+button {
+  box-sizing: border-box;
+}
+
+/* 去除原生 button 默认样式，全站用 view 实现按钮外观 */
+button {
+  background: initial;
+  padding: 0;
+  margin: 0;
+  line-height: normal;
+  font-size: inherit;
+  color: inherit;
+}
+
+button::after {
+  border: none;
+}
+
+button:focus {
+  outline: 0;
+}
+
+/* 通用卡片容器 */
+.card {
+  width: 726rpx;
+  margin: 0 auto;
+  border-radius: 24rpx;
+  background: #FFFFFF;
+}
+
+/* 单行省略 */
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

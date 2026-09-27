@@ -1,0 +1,35 @@
+<!--pages/scan/index.wxml 拍照识别过渡页（演示版）-->
+<view class="page">
+
+  <view class="mode">
+    <view class="mode__badge mode__badge--{{mode}}">{{modeLabel}}</view>
+    <text class="mode__title">{{title}}</text>
+    <text class="mode__desc">{{desc}}</text>
+  </view>
+
+  <!-- 演示态说明：真实识别链路在阶段 3 接入 -->
+  <view class="card">
+    <view class="card__body">
+      <text class="section__title">当前为演示数据</text>
+      <text class="demo__text">{{demoTip}}</text>
+      <view class="demo__actions">
+        <view class="btn-primary" bindtap="onUseDemo" hover-class="btn-primary--hover">查看识别结果示例</view>
+        <view class="btn-ghost" bindtap="onManualInput">识别失败？手动录入</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card__body">
+      <text class="section__title">真实链路（阶段 3 接入）</text>
+      <view class="flow">
+        <view class="flow__item" wx:for="{{flow}}" wx:key="*this">
+          <view class="flow__dot"></view>
+          <text class="flow__text">{{item}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <notice-bar mode="card" class="page__notice" />
+</view>

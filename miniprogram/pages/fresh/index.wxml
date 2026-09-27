@@ -1,0 +1,113 @@
+<!--pages/fresh/index.wxml 生鲜果蔬识别结果页-->
+<view class="page">
+
+  <!-- ===== 识别结果卡 ===== -->
+  <view class="result">
+    <image class="result__img" src="{{ingredient.image}}" mode="aspectFit" />
+    <view class="result__info">
+      <text class="result__name">{{ingredient.name}}</text>
+      <text class="result__line">识别结果：{{ingredient.name}}</text>
+      <text class="result__line">推荐程度：{{confidence}}%</text>
+      <view class="fresh-pill">
+        <image class="fresh-pill__icon" src="/images/icon-leaf-white.png" mode="aspectFit" />
+        <text>{{ingredient.recommend || '新鲜选择'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- ===== 分段标签 ===== -->
+  <view class="tabs">
+    <view
+      class="tabs__item {{activeTab === item.key ? 'tabs__item--active' : ''}}"
+      wx:for="{{tabs}}"
+      wx:key="key"
+      data-key="{{item.key}}"
+      bindtap="onSwitchTab"
+    >
+      <text>{{item.label}}</text>
+      <view class="tabs__bar" wx:if="{{activeTab === item.key}}"></view>
+    </view>
+  </view>
+
+  <!-- ===== 选购技巧 ===== -->
+  <block wx:if="{{activeTab === 'tips'}}">
+    <view class="card">
+      <view class="card__body">
+        <text class="section__title">{{ingredient.tipsTitle}}</text>
+        <view class="tip" wx:for="{{ingredient.tips}}" wx:key="label">
+          <view class="tip__index">{{index + 1}}</view>
+          <text class="tip__text"><text class="tip__label">{{item.label}}：</text>{{item.text}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- ===== 保鲜时长 ===== -->
+  <block wx:elif="{{activeTab === 'storage'}}">
+    <view class="card">
+      <view class="card__body">
+        <text class="section__title">参考保质期</text>
+        <view class="storage">
+          <view class="storage__item storage__item--normal">
+            <image class="storage__icon" src="/images/icon-temp-normal.png" mode="aspectFit" />
+            <view class="storage__main">
+              <text class="storage__label">常温</text>
+              <text class="storage__value">{{ingredient.shelfLife.normal}}</text>
+            </view>
+          </view>
+          <view class="storage__item storage__item--cold">
+            <image class="storage__icon" src="/images/icon-temp-cold.png" mode="aspectFit" />
+            <view class="storage__main">
+              <text class="storage__label">冷藏</text>
+              <text class="storage__value">{{ingredient.shelfLife.cold}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- ===== 营养价值（二期能力） ===== -->
+  <block wx:else>
+    <view class="card">
+      <view class="card__body">
+        <text class="section__title">营养价值</text>
+        <text class="placeholder__text">该能力纳入二期规划：膳食营养统计数据上线后在此展示单餐热量与营养元素估算。</text>
+      </view>
+    </view>
+  </block>
+
+  <!-- ===== 参考保质期（选购技巧 / 营养价值 页常驻） ===== -->
+  <view class="card" wx:if="{{activeTab !== 'storage'}}">
+    <view class="card__body">
+      <text class="section__title">参考保质期</text>
+      <view class="storage">
+        <view class="storage__item storage__item--normal">
+          <image class="storage__icon" src="/images/icon-temp-normal.png" mode="aspectFit" />
+          <view class="storage__main">
+            <text class="storage__label">常温</text>
+            <text class="storage__value">{{ingredient.shelfLife.normal}}</text>
+          </view>
+        </view>
+        <view class="storage__item storage__item--cold">
+          <image class="storage__icon" src="/images/icon-temp-cold.png" mode="aspectFit" />
+          <view class="storage__main">
+            <text class="storage__label">冷藏</text>
+            <text class="storage__value">{{ingredient.shelfLife.cold}}</text>
+          </view>
+        </view>
+      </view>
+      <text class="storage__note">以上为通用参考时长，实际存放时间受储存环境影响，请以实物为准。</text>
+    </view>
+  </view>
+
+  <view class="page__padding"></view>
+  <view class="footer-bar">
+    <view class="btn-primary btn-primary--basket" bindtap="onAddToBasket" hover-class="btn-primary--hover">
+      <image class="btn-primary__icon" src="/images/icon-basket-white.png" mode="aspectFit" />
+      <text>加入菜篮子</text>
+    </view>
+  </view>
+
+  <notice-bar mode="card" class="page__notice page__notice--above-footer" />
+</view>

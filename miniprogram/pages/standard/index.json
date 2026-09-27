@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "参考的国家标准",
+  "backgroundColor": "#F4F6F3",
+  "usingComponents": {
+    "notice-bar": "/components/noticeBar/index"
+  }
+}

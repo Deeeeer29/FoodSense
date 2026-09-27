@@ -1,0 +1,62 @@
+/* noticeBar/index.wxss 统一免责声明条样式 */
+.notice {
+  display: flex;
+  align-items: flex-start;
+}
+
+.notice__icon {
+  flex: none;
+  width: 30rpx;
+  height: 30rpx;
+  margin: 2rpx 10rpx 0 0;
+  border-radius: 50%;
+  background: #D8DEDA;
+  color: #FFFFFF;
+  font-size: 22rpx;
+  line-height: 30rpx;
+  text-align: center;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.notice__text {
+  flex: 1;
+  font-size: 22rpx;
+  line-height: 34rpx;
+  color: #97A09B;
+}
+
+/* 卡片形态：首页底部一句话提示 */
+.notice--card {
+  width: 726rpx;
+  margin: 0 auto;
+  padding: 4rpx 6rpx;
+}
+
+/* 声明块形态：关于页 / 结果页 */
+.notice--block {
+  padding: 24rpx 28rpx;
+  border-radius: 20rpx;
+  background: #F7F9F6;
+}
+
+.notice--block .notice__text {
+  color: #6C7772;
+  font-size: 24rpx;
+  line-height: 40rpx;
+}
+
+/* 结果页顶部内联提示 */
+.notice--inline {
+  padding: 16rpx 24rpx;
+  border-radius: 16rpx;
+  background: #FFF6EC;
+}
+
+.notice--inline .notice__icon {
+  background: #F0A93C;
+}
+
+.notice--inline .notice__text {
+  color: #9A6B22;
+}

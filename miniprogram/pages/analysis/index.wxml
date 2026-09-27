@@ -1,0 +1,179 @@
+<!--pages/analysis/index.wxml 包装食品识别结果页-->
+<view class="page">
+
+  <!-- ===== 产品信息卡 ===== -->
+  <view class="product">
+    <image class="product__img" src="{{product.image}}" mode="aspectFit" />
+    <view class="product__info">
+      <view class="product__title-row">
+        <text class="product__name">{{product.name}}</text>
+        <view class="grade" bindtap="onTapGrade" hover-class="grade--hover">
+          <view class="grade__icon"></view>
+          <view class="grade__text">
+            <text class="grade__label">综合评价</text>
+            <text class="grade__value">{{safetyGrade.label}}</text>
+          </view>
+          <view class="grade__arrow">›</view>
+        </view>
+      </view>
+
+      <view class="product__row" wx:for="{{productMeta}}" wx:key="label">
+        <text class="product__label">{{item.label}}</text>
+        <text class="product__value">{{item.value}}</text>
+      </view>
+
+      <text class="product__desc">{{product.desc}}</text>
+    </view>
+  </view>
+
+  <!-- ===== 分段标签 ===== -->
+  <view class="tabs">
+    <view
+      class="tabs__item {{activeTab === item.key ? 'tabs__item--active' : ''}}"
+      wx:for="{{tabs}}"
+      wx:key="key"
+      data-key="{{item.key}}"
+      bindtap="onSwitchTab"
+    >{{item.label}}</view>
+  </view>
+
+  <!-- ===== 配料分析 / 添加剂解读 ===== -->
+  <block wx:if="{{activeTab === 'ingredient'}}">
+    <!-- 配料表解析 -->
+    <view class="card">
+      <view class="card__head">
+        <image class="card__icon" src="/images/icon-sec-table.png" mode="aspectFit" />
+        <text class="card__title">配料表解析</text>
+      </view>
+      <view class="card__body">
+        <text class="ingredient-text">{{ingredientsText}}</text>
+      </view>
+    </view>
+
+    <!-- 添加剂解读 -->
+    <view class="card">
+      <view class="card__head">
+        <image class="card__icon" src="/images/icon-sec-additive.png" mode="aspectFit" />
+        <text class="card__title">添加剂解读</text>
+        <view class="card__more" bindtap="onTapAllAdditives">查看全部 ›</view>
+      </view>
+      <view class="card__body">
+        <view
+          class="additive"
+          wx:for="{{additives}}"
+          wx:key="id"
+          data-id="{{item.id}}"
+          bindtap="onOpenAdditive"
+          hover-class="additive--hover"
+        >
+          <image class="additive__icon" src="{{item.icon}}" mode="aspectFit" />
+          <view class="additive__main">
+            <text class="additive__name">{{item.name}}</text>
+            <text class="additive__desc">{{item.plain}}</text>
+          </view>
+          <text class="pill pill--{{item.risk}}">{{item.riskLabel}}</text>
+          <view class="additive__arrow">›</view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- ===== 营养成分 ===== -->
+  <block wx:elif="{{activeTab === 'nutrition'}}">
+    <view class="card">
+      <view class="card__head">
+        <image class="card__icon" src="/images/icon-sec-nutrition.png" mode="aspectFit" />
+        <text class="card__title">营养成分</text>
+        <text class="card__sub">（每 100g）</text>
+        <view class="card__more" bindtap="onTapNutritionDetail">查看详情 ›</view>
+      </view>
+      <view class="card__body">
+        <view class="nutri">
+          <view class="nutri__card" wx:for="{{nutritionCells}}" wx:key="label">
+            <text class="nutri__label">{{item.label}}</text>
+            <view class="nutri__value-row">
+              <text class="nutri__num">{{item.num}}</text>
+              <text class="nutri__unit">{{item.unit}}</text>
+            </view>
+            <text class="nutri__sub" wx:if="{{item.sub}}">（{{item.sub}}）</text>
+          </view>
+        </view>
+        <text class="card__note">营养数据来源于商品包装标示，此处仅做展示，不做健康评价。</text>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="card__head">
+        <image class="card__icon" src="/images/icon-sec-risk.png" mode="aspectFit" />
+        <text class="card__title">风险评估</text>
+      </view>
+      <view class="card__body">
+        <view class="risk">
+          <view class="risk__card" wx:for="{{riskCards}}" wx:key="key" style="background: {{item.bg}}">
+            <image class="risk__icon" src="{{item.icon}}" mode="aspectFit" />
+            <view class="risk__main">
+              <text class="risk__title" style="color: {{item.color}}">{{item.title}}</text>
+              <text class="risk__desc">{{item.desc}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- ===== 执行标准 ===== -->
+  <block wx:else>
+    <view class="card">
+      <view class="card__head">
+        <image class="card__icon" src="/images/icon-sec-table.png" mode="aspectFit" />
+        <text class="card__title">执行标准说明</text>
+      </view>
+      <view class="card__body">
+        <view class="standard" wx:for="{{standards}}" wx:key="code">
+          <text class="standard__code">{{item.code}}</text>
+          <text class="standard__name">{{item.name}}</text>
+          <text class="standard__scope">适用范围：{{item.scope}}</text>
+          <text class="standard__note">{{item.note}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- ===== 风险评估（配料分析页底部） ===== -->
+  <view class="card" wx:if="{{activeTab === 'ingredient'}}">
+    <view class="card__head">
+      <image class="card__icon" src="/images/icon-sec-risk.png" mode="aspectFit" />
+      <text class="card__title">风险评估</text>
+    </view>
+    <view class="card__body">
+      <view class="risk">
+        <view class="risk__card" wx:for="{{riskCards}}" wx:key="key" style="background: {{item.bg}}">
+          <image class="risk__icon" src="{{item.icon}}" mode="aspectFit" />
+          <view class="risk__main">
+            <text class="risk__title" style="color: {{item.color}}">{{item.title}}</text>
+            <text class="risk__desc">{{item.desc}}</text>
+          </view>
+        </view>
+      </view>
+      <text class="card__note">以上分级依据自建知识库与国家标准编号，仅供参考；准确判定请以商品标签与官方标准为准。</text>
+    </view>
+  </view>
+
+  <view class="page__padding"></view>
+  <notice-bar mode="card" class="page__notice page__notice--above-footer" />
+
+  <!-- ===== 底部操作栏 ===== -->
+  <view class="footer-bar footer-bar--split">
+    <view class="btn-outline" bindtap="onAddToLibrary" hover-class="btn-outline--hover">
+      <image class="btn-outline__icon" src="/images/icon-star-outline.png" mode="aspectFit" />
+      <text>加入我的食品库</text>
+    </view>
+    <view class="btn-primary btn-primary--scan" bindtap="onRescan" hover-class="btn-primary--hover">
+      <image class="btn-primary__icon" src="/images/icon-camera-outline-white.png" mode="aspectFit" />
+      <text>再次扫描</text>
+    </view>
+  </view>
+
+  <!-- 添加剂详情弹窗 -->
+  <additive-sheet show="{{sheetVisible}}" additive="{{sheetAdditive}}" bind:close="onCloseAdditive" />
+</view>

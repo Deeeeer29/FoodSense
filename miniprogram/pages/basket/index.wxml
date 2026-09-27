@@ -1,0 +1,63 @@
+<!--pages/basket/index.wxml 菜篮子管理页-->
+<view class="page">
+
+  <!-- ===== 分类筛选 ===== -->
+  <view class="cats">
+    <view
+      class="cats__item {{activeCategory === item.key ? 'cats__item--active' : ''}}"
+      wx:for="{{categories}}"
+      wx:key="key"
+      data-key="{{item.key}}"
+      bindtap="onSwitchCategory"
+    >
+      <text class="cats__text">{{item.label}}</text>
+      <view class="cats__bar" wx:if="{{activeCategory === item.key}}"></view>
+    </view>
+  </view>
+
+  <!-- ===== 食材清单 ===== -->
+  <view class="list" wx:if="{{items.length}}">
+    <view
+      class="row"
+      wx:for="{{items}}"
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="onOpenItem"
+      hover-class="row--hover"
+    >
+      <image class="row__img" src="{{item.image}}" mode="aspectFill" />
+      <view class="row__main">
+        <view class="row__top">
+          <text class="row__name">{{item.name}}</text>
+          <text class="cat-tag cat-tag--{{item.category}}">{{item.categoryLabel}}</text>
+          <text class="status status--{{item.remainStatus}}" wx:if="{{item.remainLabel}}">{{item.remainLabel}}</text>
+        </view>
+        <text class="row__meta">购买日期：{{item.buyDate}}</text>
+        <view class="row__meta row__meta--days">
+          <text>剩余</text>
+          <text class="row__days" wx:if="{{item.remainDays !== null}}">{{item.remainDays}}</text>
+          <text wx:if="{{item.remainDays !== null}}">天</text>
+          <text class="row__days-na" wx:else>参考时长待补充</text>
+        </view>
+      </view>
+      <view class="row__arrow"></view>
+    </view>
+  </view>
+
+  <!-- ===== 空状态 ===== -->
+  <view class="empty" wx:else>
+    <view class="empty__icon">🧺</view>
+    <text class="empty__title">这个分类下还没有食材</text>
+    <text class="empty__desc">识别食材后一键加入，就能自动算参考保质期、推荐家常菜</text>
+  </view>
+
+  <text class="list__note" wx:if="{{items.length}}">剩余天数为通用参考时长，实际存放时间受储存环境影响，请以实物为准。</text>
+
+  <view class="page__padding"></view>
+  <view class="footer-bar">
+    <view class="btn-add" bindtap="onAddIngredient" hover-class="btn-add--hover">
+      <view class="btn-add__plus"></view>
+      <text>添加食材</text>
+    </view>
+  </view>
+</view>

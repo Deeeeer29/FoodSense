@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "添加剂详情",
+  "backgroundColor": "#F4F6F3",
+  "usingComponents": {
+    "notice-bar": "/components/noticeBar/index"
+  }
+}

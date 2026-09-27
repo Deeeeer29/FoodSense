@@ -1,0 +1,314 @@
+/**
+ * pages/index/index.wxss —— 首页样式
+ *
+ * 尺寸基准：设计稿宽 750rpx，页面左右留白 12rpx，卡片宽 726rpx。
+ * 命名规范：块__元素--修饰符（BEM）。
+ */
+
+.page {
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+  background: #F4F6F3;
+}
+
+/* ===================== 顶部品牌栏 ===================== */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 28rpx 18rpx;
+}
+
+.app-header__brand {
+  display: flex;
+  align-items: center;
+}
+
+.app-header__logo {
+  width: 96rpx;
+  height: 96rpx;
+  flex: none;
+}
+
+.app-header__title {
+  display: flex;
+  flex-direction: column;
+  margin-left: 18rpx;
+}
+
+.app-header__name {
+  font-size: 44rpx;
+  font-weight: 700;
+  letter-spacing: 4rpx;
+  line-height: 1.1;
+  color: #12351E;
+}
+
+.app-header__slogan {
+  margin-top: 6rpx;
+  font-size: 22rpx;
+  letter-spacing: 4rpx;
+  color: #8A9390;
+}
+
+/* ===================== 品牌头图 ===================== */
+.hero {
+  position: relative;
+  width: 726rpx;
+  height: 386rpx;
+  margin: 0 auto;
+  border-radius: 26rpx;
+  overflow: hidden;
+  background: linear-gradient(155deg, #F7FEF4 0%, #EEFBD3 55%, #E4F8BE 100%);
+}
+
+/* 右侧果蔬插画：从设计稿裁切，右侧贴边 */
+.hero__art {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 630rpx;
+  height: 386rpx;
+}
+
+/* 左→右柔和过渡，避免插画与渐变背景出现硬边 */
+.hero__blend {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 356rpx;
+  height: 386rpx;
+  background: linear-gradient(
+    90deg,
+    rgba(245, 253, 237, 1) 0%,
+    rgba(245, 253, 237, 0.82) 34%,
+    rgba(245, 253, 237, 0) 100%
+  );
+}
+
+.hero__content {
+  position: absolute;
+  left: 42rpx;
+  top: 52rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__title {
+  display: block;
+  font-size: 52rpx;
+  font-weight: 700;
+  letter-spacing: 2rpx;
+  line-height: 74rpx;
+  color: #0A3A21;
+  text-shadow: 0 1rpx 4rpx rgba(255, 255, 255, 0.5);
+}
+
+.hero__bar {
+  width: 44rpx;
+  height: 8rpx;
+  margin-top: 18rpx;
+  border-radius: 4rpx;
+  background: rgba(10, 58, 33, 0.45);
+}
+
+/* ===================== 两大识别入口 ===================== */
+.entry-cards {
+  margin-top: 22rpx;
+}
+
+.entry-card {
+  position: relative;
+  width: 726rpx;
+  height: 218rpx;
+  margin: 0 auto;
+  border-radius: 26rpx;
+  overflow: hidden;
+}
+
+.entry-card + .entry-card {
+  margin-top: 22rpx;
+}
+
+.entry-card--pack {
+  background: linear-gradient(120deg, #FFD2A8 0%, #FD8A4B 48%, #F8662A 100%);
+}
+
+.entry-card--fresh {
+  background: linear-gradient(120deg, #B4E884 0%, #6FCB5C 48%, #46B24A 100%);
+}
+
+.entry-card--hover {
+  opacity: 0.92;
+}
+
+/* 卡片右侧装饰插画 */
+.entry-card__art {
+  position: absolute;
+  right: 18rpx;
+  top: 50%;
+  width: 300rpx;
+  height: 210rpx;
+  margin-top: -105rpx;
+}
+
+.entry-card__art--fresh {
+  right: 100rpx;
+  width: 288rpx;
+  height: 321rpx;
+  margin-top: -160rpx;
+}
+
+/* 插画左侧过渡遮罩，使插画与渐变底色自然衔接 */
+.entry-card__blend {
+  position: absolute;
+  top: 0;
+  width: 200rpx;
+  height: 218rpx;
+}
+
+.entry-card__blend--pack {
+  right: 306rpx;
+  background: linear-gradient(90deg, rgba(252, 137, 76, 0) 0%, rgba(252, 137, 76, 0.9) 100%);
+}
+
+.entry-card__blend--fresh {
+  right: 348rpx;
+  background: linear-gradient(90deg, rgba(96, 197, 88, 0) 0%, rgba(96, 197, 88, 0.9) 100%);
+}
+
+.entry-card__content {
+  position: absolute;
+  left: 44rpx;
+  top: 38rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.entry-card__title {
+  display: block;
+  font-size: 50rpx;
+  font-weight: 700;
+  letter-spacing: 3rpx;
+  line-height: 62rpx;
+}
+
+.entry-card__desc {
+  display: block;
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  letter-spacing: 2rpx;
+  line-height: 40rpx;
+}
+
+.entry-card__title--light,
+.entry-card__desc--light {
+  color: #FFFFFF;
+  text-shadow: 0 2rpx 10rpx rgba(120, 60, 10, 0.18);
+}
+
+.entry-card__bar {
+  width: 40rpx;
+  height: 7rpx;
+  margin-top: 16rpx;
+  border-radius: 4rpx;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* 相机按钮 */
+.entry-card__camera {
+  position: absolute;
+  right: 37rpx;
+  top: 50%;
+  width: 144rpx;
+  height: 144rpx;
+  margin-top: -72rpx;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 12rpx 26rpx rgba(90, 50, 10, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.entry-card__camera-icon {
+  width: 104rpx;
+  height: 104rpx;
+}
+
+/* ===================== 快捷入口 ===================== */
+.quick-actions {
+  display: flex;
+  align-items: flex-start;
+  width: 726rpx;
+  margin: 30rpx auto 0;
+  padding: 0 2rpx;
+}
+
+.quick-action {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quick-action--hover .quick-action__icon-wrap {
+  transform: scale(0.94);
+}
+
+.quick-action__icon-wrap {
+  position: relative;
+  width: 92rpx;
+  height: 92rpx;
+  border-radius: 24rpx;
+  background: #E9F7E4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease;
+}
+
+/* 每个入口一个底色，与设计稿的浅色方块一致 */
+.quick-action:nth-child(2) .quick-action__icon-wrap {
+  background: #FDEEDF;
+}
+
+.quick-action:nth-child(3) .quick-action__icon-wrap {
+  background: #E9EEFB;
+}
+
+.quick-action:nth-child(4) .quick-action__icon-wrap {
+  background: #F0E9FB;
+}
+
+.quick-action__icon {
+  width: 52rpx;
+  height: 52rpx;
+}
+
+.quick-action__badge {
+  position: absolute;
+  top: -8rpx;
+  right: -8rpx;
+  min-width: 32rpx;
+  height: 32rpx;
+  padding: 0 8rpx;
+  border-radius: 16rpx;
+  background: #F4493B;
+  color: #FFFFFF;
+  font-size: 20rpx;
+  line-height: 32rpx;
+  text-align: center;
+}
+
+.quick-action__label {
+  margin-top: 16rpx;
+  font-size: 26rpx;
+  color: #3E4A44;
+}
+
+/* ===================== 免责声明 ===================== */
+.page__notice {
+  display: block;
+  margin-top: 36rpx;
+}

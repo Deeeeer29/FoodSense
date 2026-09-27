@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "配料解读",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#F4F6F3",
+  "usingComponents": {
+    "notice-bar": "/components/noticeBar/index",
+    "additive-sheet": "/components/additiveSheet/index"
+  }
+}

@@ -1,0 +1,235 @@
+/* pages/common/layout.wxss —— 全站通用页面骨架与基础组件样式
+ *
+ * 设计基准：750rpx，卡片宽 726rpx，圆角 26rpx，页面留白 12rpx。
+ * 通过 @import 引入到各页面 wxss，避免重复代码。
+ */
+
+.page {
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+  background: #F4F6F3;
+}
+
+.page__head {
+  display: flex;
+  flex-direction: column;
+  padding: 32rpx 40rpx 8rpx;
+}
+
+.page__title {
+  font-size: 44rpx;
+  font-weight: 700;
+  color: #12351E;
+}
+
+.page__subtitle {
+  margin-top: 12rpx;
+  font-size: 26rpx;
+  color: #8A9390;
+}
+
+.page__notice {
+  display: block;
+  margin-top: 36rpx;
+}
+
+/* ============ 通用卡片 ============ */
+.card {
+  width: 726rpx;
+  margin: 0 auto;
+  border-radius: 26rpx;
+  background: #FFFFFF;
+}
+
+.card + .card {
+  margin-top: 22rpx;
+}
+
+.card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx 32rpx 0;
+}
+
+.card__title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #12351E;
+}
+
+.card__body {
+  padding: 24rpx 32rpx 32rpx;
+}
+
+/* ============ 标签 / 徽标 ============ */
+.tag {
+  display: inline-block;
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  line-height: 32rpx;
+}
+
+.tag--risk-low {
+  color: #22A552;
+  background: #E7F7EB;
+}
+
+.tag--risk-medium {
+  color: #E39A16;
+  background: #FDF3DF;
+}
+
+.tag--risk-high {
+  color: #E2554A;
+  background: #FDEDEB;
+}
+
+.tag--soft {
+  color: #4C5751;
+  background: #F1F4F0;
+}
+
+/* ============ 分段标签页 ============ */
+.tabs {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 26rpx 8rpx;
+}
+
+.tabs__item {
+  position: relative;
+  padding: 12rpx 26rpx;
+  margin-right: 10rpx;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  color: #6C7772;
+}
+
+.tabs__item--active {
+  color: #1B8A3D;
+  font-weight: 600;
+  background: #E7F7EB;
+}
+
+/* ============ 列表行 ============ */
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: 26rpx 32rpx;
+  background: #FFFFFF;
+}
+
+.list-item__arrow {
+  flex: none;
+  margin-left: 12rpx;
+  font-size: 34rpx;
+  color: #C7CDC9;
+}
+
+/* ============ 主按钮 ============ */
+.btn-primary {
+  height: 92rpx;
+  line-height: 92rpx;
+  border-radius: 46rpx;
+  background: linear-gradient(120deg, #46C46A 0%, #1FA84B 100%);
+  color: #FFFFFF;
+  font-size: 32rpx;
+  font-weight: 600;
+  text-align: center;
+}
+
+.btn-primary--hover {
+  opacity: 0.9;
+}
+
+.btn-ghost {
+  height: 76rpx;
+  line-height: 76rpx;
+  border-radius: 38rpx;
+  border: 2rpx solid #DCE3DD;
+  color: #3E4A44;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+/* 底部固定操作栏（含安全区） */
+.footer-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 16rpx 32rpx calc(16rpx + env(safe-area-inset-bottom));
+  background: #FFFFFF;
+  box-shadow: 0 -6rpx 20rpx rgba(20, 60, 35, 0.05);
+}
+
+/* ============ 空状态 ============ */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 726rpx;
+  margin: 32rpx auto 0;
+  padding: 64rpx 40rpx;
+  border-radius: 26rpx;
+  background: #FFFFFF;
+}
+
+.empty__icon {
+  font-size: 72rpx;
+  line-height: 1;
+}
+
+.empty__title {
+  margin-top: 24rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #2A3630;
+}
+
+.empty__desc {
+  margin-top: 14rpx;
+  font-size: 25rpx;
+  line-height: 38rpx;
+  color: #8A9390;
+  text-align: center;
+}
+
+/* ============ 规划清单（骨架页用） ============ */
+.roadmap {
+  width: 726rpx;
+  margin: 24rpx auto 0;
+  padding: 32rpx 36rpx;
+  border-radius: 26rpx;
+  background: #FFFFFF;
+}
+
+.roadmap__title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #12351E;
+}
+
+.roadmap__item {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 20rpx;
+}
+
+.roadmap__dot {
+  width: 10rpx;
+  height: 10rpx;
+  margin: 16rpx 16rpx 0 0;
+  flex: none;
+  border-radius: 50%;
+  background: #1FA84B;
+}
+
+.roadmap__text {
+  flex: 1;
+  font-size: 26rpx;
+  line-height: 42rpx;
+  color: #5B6660;
+}

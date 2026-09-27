@@ -1,0 +1,60 @@
+<!--pages/additive/index.wxml 添加剂详情页（与弹窗同源内容，供列表跳转）-->
+<view class="page">
+  <view class="card" wx:if="{{additive}}">
+    <view class="card__body">
+      <view class="head">
+        <view class="head__icon head__icon--{{additive.risk}}">{{additive.name[0]}}</view>
+        <view class="head__main">
+          <text class="head__name">{{additive.name}}</text>
+          <text class="head__alias" wx:if="{{additive.alias}}">（{{additive.alias}}）</text>
+        </view>
+        <text class="pill pill--{{additive.risk}}">{{additive.riskLabel}}</text>
+      </view>
+
+      <view class="block">
+        <text class="block__title">是什么</text>
+        <text class="block__text">{{additive.desc || additive.plain}}</text>
+      </view>
+
+      <view class="block">
+        <text class="block__title">常见使用场景</text>
+        <view class="scenes">
+          <view class="scene" wx:for="{{additive.scenes}}" wx:key="label">
+            <image class="scene__icon" src="{{item.image}}" mode="aspectFit" />
+            <text class="scene__name">{{item.name}}</text>
+            <text class="scene__label">{{item.label}}</text>
+          </view>
+        </view>
+        <text class="block__hint" wx:if="{{additive.sceneText}}">{{additive.sceneText}}</text>
+      </view>
+
+      <view class="block">
+        <text class="block__title">参考摄入建议</text>
+        <text class="block__text">{{additive.intake}}</text>
+      </view>
+
+      <view class="block">
+        <text class="block__title">相关标准</text>
+        <text class="block__text">{{standardText}}</text>
+      </view>
+
+      <view class="block">
+        <text class="block__title">安全性评估</text>
+        <view class="safety" style="background: {{riskBg}}">
+          <image class="safety__icon" src="{{riskShield}}" mode="aspectFit" />
+          <view class="safety__main">
+            <text class="safety__title" style="color: {{riskColor}}">{{riskTitle}}</text>
+            <text class="safety__text">{{riskAssessment}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty" wx:else>
+    <text class="empty__title">未找到该添加剂</text>
+    <text class="empty__desc">知识库中暂无该条目，后续会持续扩充</text>
+  </view>
+
+  <notice-bar mode="block" class="page__notice" />
+</view>

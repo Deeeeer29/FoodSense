@@ -1,0 +1,35 @@
+<!--pages/discover/index.wxml 发现页-->
+<view class="page">
+  <view class="page__head">
+    <text class="page__title">发现</text>
+    <text class="page__subtitle">选购技巧、添加剂科普与家常菜谱</text>
+  </view>
+
+  <!-- 内容型入口 -->
+  <view class="blocks">
+    <view class="block" wx:for="{{blocks}}" wx:key="key" data-key="{{item.key}}" bindtap="onTapBlock" hover-class="block--hover">
+      <view class="block__badge block__badge--{{item.key}}">{{item.badge}}</view>
+      <view class="block__main">
+        <text class="block__title">{{item.title}}</text>
+        <text class="block__desc">{{item.desc}}</text>
+      </view>
+      <text class="list-item__arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 食材库速览 -->
+  <view class="card">
+    <view class="card__head">
+      <text class="card__title">食材选购速查</text>
+      <text class="card__more" bindtap="onTapIngredientMore">全部 ›</text>
+    </view>
+    <view class="ings">
+      <view class="ing" wx:for="{{ingredients}}" wx:key="id" data-id="{{item.id}}" bindtap="onTapIngredient" hover-class="ing--hover">
+        <image class="ing__img" src="{{item.image}}" mode="aspectFit" />
+        <text class="ing__name">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <notice-bar mode="card" class="page__notice" />
+</view>

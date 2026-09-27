@@ -1,0 +1,279 @@
+/* pages/basket/index.wxss 菜篮子管理页 */
+.page {
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+  background: #F4F6F3;
+}
+
+.page__padding {
+  height: 170rpx;
+}
+
+/* ===================== 分类筛选 ===================== */
+.cats {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 24rpx 10rpx;
+}
+
+.cats__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14rpx 0 10rpx;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  color: #6C7772;
+}
+
+.cats__item--active {
+  color: #1B8A3D;
+  font-weight: 700;
+  background: #E9F7E6;
+}
+
+/* 激活态下方绿色短横线 */
+.cats__bar {
+  width: 58rpx;
+  height: 6rpx;
+  margin-top: 8rpx;
+  border-radius: 3rpx;
+  background: #35BE62;
+}
+
+/* ===================== 食材清单 ===================== */
+.list {
+  width: 726rpx;
+  margin: 8rpx auto 0;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  padding: 26rpx;
+  border-radius: 26rpx;
+  background: #FFFFFF;
+}
+
+.row + .row {
+  margin-top: 20rpx;
+}
+
+.row--hover {
+  background: #F8FBF7;
+}
+
+.row__img {
+  flex: none;
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 22rpx;
+  background: #F3F5F2;
+}
+
+.row__main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  margin-left: 26rpx;
+}
+
+.row__top {
+  display: flex;
+  align-items: center;
+}
+
+.row__name {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #16241A;
+}
+
+/* 品类标签：按分类配色，与设计稿一致 */
+.cat-tag {
+  flex: none;
+  margin-left: 20rpx;
+  padding: 6rpx 18rpx;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+}
+
+.cat-tag--vegetable {
+  color: #2EAE55;
+  background: #E4F7E6;
+}
+
+.cat-tag--fruit {
+  color: #D9736F;
+  background: #FBEBE9;
+}
+
+.cat-tag--meat {
+  color: #D2890F;
+  background: #FCF0DA;
+}
+
+.cat-tag--packaged {
+  color: #8A6FC8;
+  background: #F0EAFB;
+}
+
+/* 状态标签：临期 / 已过期 */
+.status {
+  flex: none;
+  margin-left: auto;
+  margin-right: 6rpx;
+  padding: 8rpx 20rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.status--soon {
+  background: #F0A93C;
+}
+
+.status--expired {
+  background: #E2554A;
+}
+
+.status--normal,
+.status--unknown {
+  display: none;
+}
+
+.row__meta {
+  margin-top: 12rpx;
+  font-size: 26rpx;
+  color: #8A9390;
+}
+
+.row__meta--days {
+  display: flex;
+  align-items: baseline;
+}
+
+/* 剩余天数：数字用品牌绿高亮 */
+.row__days {
+  margin: 0 6rpx;
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #2EAE55;
+}
+
+.row__days-na {
+  margin-left: 6rpx;
+  color: #A3AAA6;
+}
+
+/* 右侧箭头（纯 CSS，避免额外图片） */
+.row__arrow {
+  flex: none;
+  width: 16rpx;
+  height: 16rpx;
+  margin-left: 12rpx;
+  border-top: 4rpx solid #C7CDC9;
+  border-right: 4rpx solid #C7CDC9;
+  transform: rotate(45deg);
+}
+
+.list__note {
+  display: block;
+  width: 726rpx;
+  margin: 22rpx auto 0;
+  font-size: 23rpx;
+  line-height: 36rpx;
+  color: #A3AAA6;
+}
+
+/* ===================== 空状态 ===================== */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 726rpx;
+  margin: 40rpx auto 0;
+  padding: 64rpx 40rpx;
+  border-radius: 26rpx;
+  background: #FFFFFF;
+}
+
+.empty__icon {
+  font-size: 72rpx;
+  line-height: 1;
+}
+
+.empty__title {
+  margin-top: 24rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #2A3630;
+}
+
+.empty__desc {
+  margin-top: 14rpx;
+  font-size: 25rpx;
+  line-height: 38rpx;
+  color: #8A9390;
+  text-align: center;
+}
+
+/* ===================== 底部按钮 ===================== */
+.footer-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 16rpx 32rpx calc(16rpx + env(safe-area-inset-bottom));
+  background: #FFFFFF;
+  box-shadow: 0 -6rpx 20rpx rgba(20, 60, 35, 0.05);
+}
+
+.btn-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 96rpx;
+  border-radius: 48rpx;
+  background: linear-gradient(120deg, #46C46A 0%, #1FA84B 100%);
+  color: #FFFFFF;
+  font-size: 34rpx;
+  font-weight: 600;
+}
+
+.btn-add--hover {
+  opacity: 0.9;
+}
+
+/* 加号图标（纯 CSS，两条短线） */
+.btn-add__plus {
+  position: relative;
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 14rpx;
+}
+
+.btn-add__plus::before,
+.btn-add__plus::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: #FFFFFF;
+  border-radius: 2rpx;
+}
+
+.btn-add__plus::before {
+  width: 30rpx;
+  height: 4rpx;
+  margin: -2rpx 0 0 -15rpx;
+}
+
+.btn-add__plus::after {
+  width: 4rpx;
+  height: 30rpx;
+  margin: -15rpx 0 0 -2rpx;
+}

@@ -1,0 +1,94 @@
+<!--pages/recipe/list/index.wxml 食谱推荐页-->
+<view class="page">
+
+  <!-- ===== 推荐横幅 ===== -->
+  <view class="banner">
+    <image class="banner__art" src="/images/recipe-basket.png" mode="aspectFit" />
+    <view class="banner__main">
+      <text class="banner__title">根据你的菜篮子为你推荐</text>
+      <view class="banner__sub">
+        <text>当前可匹配</text>
+        <text class="banner__count">{{cookableCount}}</text>
+        <text>道食谱</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- ===== 菜篮子食材速览 ===== -->
+  <view class="owned" wx:if="{{ownedList.length}}">
+    <view class="owned__item" wx:for="{{ownedList}}" wx:key="id" data-id="{{item.ingredientId}}" bindtap="onTapOwned">
+      <image class="owned__thumb" src="{{item.thumb}}" mode="aspectFit" />
+      <text class="owned__name">{{item.name}}</text>
+    </view>
+  </view>
+
+  <!-- ===== 分类筛选 ===== -->
+  <view class="filters">
+    <view
+      class="filters__item {{activeFilter === item.key ? 'filters__item--active' : ''}}"
+      wx:for="{{filters}}"
+      wx:key="key"
+      data-key="{{item.key}}"
+      bindtap="onSwitchFilter"
+    >{{item.label}}</view>
+  </view>
+
+  <!-- ===== 食谱列表 ===== -->
+  <view class="recipes" wx:if="{{recipes.length}}">
+    <view class="recipe" wx:for="{{recipes}}" wx:key="id" data-id="{{item.id}}" bindtap="onOpenRecipe" hover-class="recipe--hover">
+      <image class="recipe__img" src="{{item.image}}" mode="aspectFill" />
+      <view class="recipe__main">
+        <view class="recipe__top">
+          <text class="recipe__name">{{item.name}}</text>
+          <view class="cookable" wx:if="{{item.canCook}}">
+            <image class="cookable__icon" src="/images/icon-leaf-mini.png" mode="aspectFit" />
+            <text>可直接做</text>
+          </view>
+        </view>
+        <text class="recipe__desc">{{item.desc}}</text>
+
+        <view class="meta">
+          <view class="meta__item">
+            <image class="meta__icon" src="/images/icon-meta-clock.png" mode="aspectFit" />
+            <text>{{item.minutes}}分钟</text>
+          </view>
+          <view class="meta__item">
+            <image class="meta__icon" src="/images/icon-meta-chef.png" mode="aspectFit" />
+            <text>{{item.difficulty}}</text>
+          </view>
+          <view class="meta__item">
+            <image class="meta__icon" src="/images/icon-meta-kcal.png" mode="aspectFit" />
+            <text>{{item.kcal}} kcal</text>
+          </view>
+        </view>
+
+        <view class="matched">
+          <text class="matched__label">{{item.matchedText}}</text>
+          <view class="matched__thumbs">
+            <image class="matched__thumb" wx:for="{{item.matchedThumbs}}" wx:for-item="thumb" wx:key="*this" src="{{thumb}}" mode="aspectFit" />
+          </view>
+          <view class="matched__arrow"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- ===== 空状态 ===== -->
+  <view class="empty" wx:else>
+    <view class="empty__icon">🍳</view>
+    <text class="empty__title">这个分类下暂时没有可推荐的食谱</text>
+    <text class="empty__desc">先把食材加入菜篮子，再回来看看能做什么</text>
+  </view>
+
+  <view class="page__padding"></view>
+  <view class="footer-bar">
+    <view class="btn-basket" bindtap="onTapBasket" hover-class="btn-basket--hover">
+      <image class="btn-basket__icon" src="/images/icon-basket-white.png" mode="aspectFit" />
+      <text>查看我的菜篮子</text>
+    </view>
+    <view class="btn-refresh" bindtap="onRefresh" hover-class="btn-refresh--hover">
+      <image class="btn-refresh__icon" src="/images/icon-refresh.png" mode="aspectFit" />
+      <text>换一批</text>
+    </view>
+  </view>
+</view>

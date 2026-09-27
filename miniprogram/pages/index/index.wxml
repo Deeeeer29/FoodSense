@@ -1,0 +1,76 @@
+<!--pages/index/index.wxml 食察局 · 首页-->
+<view class="page">
+
+  <!-- ===== 顶部品牌栏 ===== -->
+  <view class="app-header">
+    <view class="app-header__brand">
+      <image class="app-header__logo" src="/images/logo-shichaju.png" mode="aspectFit" />
+      <view class="app-header__title">
+        <text class="app-header__name">食察局</text>
+        <text class="app-header__slogan">AI 食品助手</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- ===== 品牌头图（主视觉） ===== -->
+  <view class="hero">
+    <image class="hero__art" src="/images/hero-veg.jpg" mode="aspectFill" />
+    <view class="hero__blend"></view>
+    <view class="hero__content">
+      <text class="hero__title">看懂食物</text>
+      <text class="hero__title">会挑会存</text>
+      <text class="hero__title">智能下厨</text>
+      <view class="hero__bar"></view>
+    </view>
+  </view>
+
+  <!-- ===== 两大识别入口 ===== -->
+  <view class="entry-cards">
+    <view class="entry-card entry-card--pack" bindtap="onTapScanPack" hover-class="entry-card--hover">
+      <view class="entry-card__blend entry-card__blend--pack"></view>
+      <image class="entry-card__art" src="/images/card-pack.jpg" mode="aspectFit" />
+      <view class="entry-card__content">
+        <text class="entry-card__title entry-card__title--light">拍包装食品</text>
+        <text class="entry-card__desc entry-card__desc--light">看配料解读</text>
+        <view class="entry-card__bar"></view>
+      </view>
+      <view class="entry-card__camera">
+        <image class="entry-card__camera-icon" src="/images/camera-orange.png" mode="aspectFit" />
+      </view>
+    </view>
+
+    <view class="entry-card entry-card--fresh" bindtap="onTapScanFresh" hover-class="entry-card--hover">
+      <view class="entry-card__blend entry-card__blend--fresh"></view>
+      <image class="entry-card__art entry-card__art--fresh" src="/images/card-fresh.jpg" mode="aspectFit" />
+      <view class="entry-card__content">
+        <text class="entry-card__title entry-card__title--light">拍生鲜果蔬</text>
+        <text class="entry-card__desc entry-card__desc--light">看选购技巧</text>
+        <view class="entry-card__bar"></view>
+      </view>
+      <view class="entry-card__camera">
+        <image class="entry-card__camera-icon" src="/images/camera-green.png" mode="aspectFit" />
+      </view>
+    </view>
+  </view>
+
+  <!-- ===== 快捷入口 ===== -->
+  <view class="quick-actions">
+    <view
+      class="quick-action"
+      wx:for="{{quickEntries}}"
+      wx:key="key"
+      data-key="{{item.key}}"
+      bindtap="onTapQuickEntry"
+      hover-class="quick-action--hover"
+    >
+      <view class="quick-action__icon-wrap">
+        <image class="quick-action__icon" src="{{item.icon}}" mode="aspectFit" />
+        <view class="quick-action__badge" wx:if="{{item.key === 'basket' && basketCount > 0}}">{{basketCount}}</view>
+      </view>
+      <text class="quick-action__label">{{item.label}}</text>
+    </view>
+  </view>
+
+  <!-- ===== 统一免责声明 ===== -->
+  <notice-bar class="page__notice" mode="card" />
+</view>

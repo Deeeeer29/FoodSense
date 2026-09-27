@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "发现",
+  "usingComponents": {
+    "notice-bar": "/components/noticeBar/index"
+  }
+}

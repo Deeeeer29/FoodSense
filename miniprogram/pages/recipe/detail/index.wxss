@@ -1,0 +1,166 @@
+/* pages/recipe/detail/index.wxss 食谱详情页 */
+/* ===== 成品图 ===== */
+.hero {
+  width: 726rpx;
+  margin: 20rpx auto 0;
+  border-radius: 26rpx;
+  overflow: hidden;
+}
+
+.hero__img {
+  width: 100%;
+  height: 420rpx;
+  background: #FCF4E8;
+}
+
+/* ===== 基础信息 ===== */
+.facts {
+  display: flex;
+  align-items: center;
+  width: 726rpx;
+  margin: 22rpx auto 0;
+  padding: 24rpx 28rpx;
+  border-radius: 26rpx;
+  background: #FFFFFF;
+}
+
+.fact {
+  flex: none;
+  display: flex;
+  align-items: center;
+  margin-right: 32rpx;
+}
+
+.fact__label {
+  font-size: 24rpx;
+  color: #98A19C;
+}
+
+.fact__value {
+  margin-left: 8rpx;
+  font-size: 27rpx;
+  font-weight: 600;
+  color: #2A3630;
+}
+
+.fact__fav {
+  margin-left: auto;
+  font-size: 38rpx;
+  color: #E4585A;
+}
+
+/* ===== 食材 ===== */
+.section__head {
+  display: flex;
+  align-items: baseline;
+}
+
+.section__title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #12351E;
+}
+
+.section__sub {
+  font-size: 24rpx;
+  color: #98A19C;
+}
+
+.ing {
+  display: flex;
+  align-items: center;
+  padding: 22rpx 0;
+  border-bottom: 2rpx solid #F3F6F2;
+}
+
+.ing__img {
+  flex: none;
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 14rpx;
+  background: #FCF4E8;
+}
+
+.ing__name {
+  flex: 1;
+  margin-left: 22rpx;
+  font-size: 29rpx;
+  color: #2A3630;
+}
+
+.ing__amount {
+  flex: none;
+  font-size: 27rpx;
+  color: #98A19C;
+}
+
+.ing__own {
+  flex: none;
+  width: 38rpx;
+  height: 38rpx;
+  margin-left: 22rpx;
+  border-radius: 50%;
+  background: #F1F4F0;
+  color: #FFFFFF;
+  font-size: 24rpx;
+  line-height: 38rpx;
+  text-align: center;
+}
+
+.ing__own--on {
+  background: #22A552;
+}
+
+/* ===== 步骤 ===== */
+.step {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 26rpx;
+}
+
+.step__index {
+  flex: none;
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+  background: #E7F7EB;
+  color: #1B8A3D;
+  font-size: 26rpx;
+  font-weight: 700;
+  line-height: 44rpx;
+  text-align: center;
+}
+
+.step__text {
+  flex: 1;
+  font-size: 28rpx;
+  line-height: 46rpx;
+  color: #5B6660;
+}
+
+.recipe__tip {
+  margin-top: 30rpx;
+  padding: 22rpx 26rpx;
+  border-radius: 18rpx;
+  background: #F7FAF6;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe__tip-title {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #1B8A3D;
+}
+
+.recipe__tip-text {
+  margin-top: 8rpx;
+  font-size: 26rpx;
+  line-height: 42rpx;
+  color: #5B6660;
+}
+
+.page__notice {
+  margin-top: 30rpx;
+}

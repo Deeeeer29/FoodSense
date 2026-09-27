@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "食察局",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#F4F6F3",
+  "usingComponents": {
+    "notice-bar": "/components/noticeBar/index"
+  }
+}

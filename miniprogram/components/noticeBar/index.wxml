@@ -1,0 +1,5 @@
+<!--noticeBar/index.wxml 统一免责声明条-->
+<view class="notice notice--{{mode}}">
+  <view class="notice__icon" wx:if="{{showIcon}}">i</view>
+  <text class="notice__text">{{content}}</text>
+</view>

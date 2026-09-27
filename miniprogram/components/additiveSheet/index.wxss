@@ -1,0 +1,278 @@
+/* components/additiveSheet/index.wxss 添加剂详情弹窗 */
+.mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  background: rgba(18, 30, 22, 0.45);
+  display: flex;
+  align-items: flex-end;
+}
+
+.sheet {
+  width: 100%;
+  max-height: 88vh;
+  border-radius: 32rpx 32rpx 0 0;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+}
+
+.sheet__head {
+  position: relative;
+  padding: 34rpx 32rpx 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sheet__title {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #16241A;
+}
+
+.sheet__close {
+  position: absolute;
+  right: 28rpx;
+  top: 26rpx;
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+  color: #6C7772;
+  font-size: 32rpx;
+  line-height: 56rpx;
+  text-align: center;
+}
+
+.sheet__close--hover {
+  background: #F1F4F0;
+}
+
+.sheet__body {
+  flex: 1;
+  padding: 10rpx 36rpx 0;
+  max-height: 62vh;
+}
+
+/* ============ 名称行 ============ */
+.head {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 0 30rpx;
+}
+
+.head__icon {
+  flex: none;
+  width: 84rpx;
+  height: 84rpx;
+  border-radius: 50%;
+  color: #FFFFFF;
+  font-size: 36rpx;
+  font-weight: 700;
+  line-height: 84rpx;
+  text-align: center;
+}
+
+.head__icon--low {
+  background: linear-gradient(150deg, #6EDA8C, #22A552);
+}
+
+.head__icon--medium {
+  background: linear-gradient(150deg, #F7C465, #E39A16);
+}
+
+.head__icon--high {
+  background: linear-gradient(150deg, #F59089, #E2554A);
+}
+
+.head__main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  margin-left: 22rpx;
+}
+
+.head__name {
+  font-size: 38rpx;
+  font-weight: 700;
+  color: #16241A;
+}
+
+.head__alias {
+  margin-top: 6rpx;
+  font-size: 26rpx;
+  color: #6C7772;
+}
+
+/* 风险胶囊 */
+.pill {
+  flex: none;
+  padding: 10rpx 26rpx;
+  border-radius: 28rpx;
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.pill--low {
+  background: #35BE62;
+}
+
+.pill--medium {
+  background: #F0AC29;
+}
+
+.pill--high {
+  background: #EA6157;
+}
+
+.pill--unknown {
+  background: #B6BDB9;
+}
+
+/* ============ 内容块（左侧绿色竖条 + 标题） ============ */
+.block {
+  margin-bottom: 34rpx;
+}
+
+.block__title {
+  position: relative;
+  display: block;
+  padding-left: 22rpx;
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #16241A;
+}
+
+.block__title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6rpx;
+  width: 8rpx;
+  height: 32rpx;
+  border-radius: 4rpx;
+  background: #3FBF63;
+}
+
+.block__text {
+  display: block;
+  margin-top: 16rpx;
+  font-size: 28rpx;
+  line-height: 48rpx;
+  color: #4C5751;
+}
+
+.block__hint {
+  display: block;
+  margin-top: 16rpx;
+  font-size: 24rpx;
+  line-height: 38rpx;
+  color: #98A19C;
+}
+
+/* ============ 常见使用场景四宫格 ============ */
+.scenes {
+  display: flex;
+  margin-top: 20rpx;
+}
+
+.scene {
+  flex: 1;
+  min-width: 0;
+  padding: 16rpx 6rpx 18rpx;
+  border-radius: 18rpx;
+  background: #F2F9F0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scene + .scene {
+  margin-left: 14rpx;
+}
+
+.scene__icon {
+  width: 62rpx;
+  height: 62rpx;
+}
+
+.scene__name {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  color: #4C5751;
+  white-space: nowrap;
+}
+
+.scene__label {
+  margin-top: 6rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #16241A;
+  white-space: nowrap;
+}
+
+/* ============ 安全性评估 ============ */
+.safety {
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+  padding: 26rpx 24rpx;
+  border-radius: 22rpx;
+}
+
+.safety__icon {
+  flex: none;
+  width: 92rpx;
+  height: 92rpx;
+  margin-right: 22rpx;
+}
+
+.safety__main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.safety__title {
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.safety__text {
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  line-height: 42rpx;
+  color: #4C5751;
+}
+
+.sheet__tip {
+  padding: 6rpx 0 16rpx;
+  font-size: 23rpx;
+  line-height: 36rpx;
+  color: #A3AAA6;
+}
+
+.sheet__footer {
+  padding: 16rpx 32rpx calc(20rpx + env(safe-area-inset-bottom));
+}
+
+.btn-primary {
+  height: 92rpx;
+  line-height: 92rpx;
+  border-radius: 46rpx;
+  background: linear-gradient(120deg, #46C46A 0%, #1FA84B 100%);
+  color: #FFFFFF;
+  font-size: 32rpx;
+  font-weight: 600;
+  text-align: center;
+}
+
+.btn-primary--hover {
+  opacity: 0.9;
+}
